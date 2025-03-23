@@ -117,7 +117,7 @@ async function vote(team) {
     try {
       const token = await createIdToken();
 
-      const response = await fetch("", {
+      const response = await fetch("https://tabs-vs-spaces-XXXXXX.us-central1.run.app/", {
         method: 'POST',
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
