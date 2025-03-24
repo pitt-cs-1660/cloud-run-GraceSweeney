@@ -17,4 +17,3 @@ const config = {
   apiKey: 'AIzaSyDrTgJSqT2dtRqmjF6vVHb0Myh0lfytFHM',
   authDomain: 'canvas-radio-454700-f6.firebaseapp.com',
 };
-export default firebaseConfig;
