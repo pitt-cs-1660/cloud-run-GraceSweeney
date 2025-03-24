@@ -86,6 +86,7 @@ function signOut() {
 
 // Toggle Sign in/out button
 function toggle() {
+  console.log("Sign In button clicked.");
   if (authDisabled()) {
     window.alert('Auth is disabled.');
     return;
