@@ -24,14 +24,27 @@ async def read_root(request: Request):
 
     # stream all votes; count tabs / spaces votes, and get recent votes
 
+    votes = votes_collection.stream()
+    tabs_count = 0
+    spaces_count = 0
+    vote_data = []
+
+    for v in votes:
+        vote = v.to_dict()
+        if vote["team"] == "TABS":
+            tabs_count += 1
+        else:
+            spaces_count += 1
+        vote_data.append(v.to_dict())
+    
     # ====================================
     # ++++ STOP CODE ++++
     # ====================================
     return templates.TemplateResponse("index.html", {
         "request": request,
-        "tabs_count": 0,
-        "spaces_count": 0,
-        "recent_votes": []
+        "tabs_count": tabs_count,
+        "spaces_count": spaces_count,
+        "recent_votes": vote_data
     })
 
 
@@ -45,7 +58,11 @@ async def create_vote(team: Annotated[str, Form()]):
     # ====================================
 
     # create a new vote document in firestore
-    return {"detail": "Not implemented yet!"}
+
+    votes_collection.add({
+    "team": team,
+    "time_cast": datetime.datetime.utcnow().isoformat()
+    })
 
     # ====================================
     # ++++ STOP CODE ++++

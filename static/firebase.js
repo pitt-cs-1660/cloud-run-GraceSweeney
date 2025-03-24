@@ -86,6 +86,7 @@ function signOut() {
 
 // Toggle Sign in/out button
 function toggle() {
+  console.log("Sign In button clicked.");
   if (authDisabled()) {
     window.alert('Auth is disabled.');
     return;
@@ -117,11 +118,21 @@ async function vote(team) {
     try {
       const token = await createIdToken();
 
-      /*
-       * ++++ YOUR CODE HERE ++++
-       */
-      window.alert(`Not implemented yet!`);
+      const response = await fetch("https://tabs-vs-spaces-211027029722.us-central1.run.app", {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": `Bearer ${token}`,
+        },
+        body: new URLSearchParams({ team }),
+      });
 
+      if (response.ok) {
+        console.log('Vote submitted successfully.');
+        window.alert(`Vote submitted successfully.`);
+        window.location.reload();
+      }
+      
     } catch (err) {
       console.log(`Error when submitting vote: ${err}`);
       window.alert('Something went wrong... Please try again!');
