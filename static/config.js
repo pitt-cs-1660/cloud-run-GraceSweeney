@@ -14,6 +14,6 @@
  * @type {{apiKey: string, authDomain: string}}
  */
 const config = {
-  apiKey: 'AIzaSyDhwsk8AklD8Ipj26fVzYTMgrWvE8x1rgc',
-  authDomain: 'cc-spring2025.firebaseapp.com',
+  apiKey: 'AIzaSyDrTgJSqT2dtRqmjF6vVHb0Myh0lfytFHM',
+  authDomain: 'canvas-radio-454700-f6.firebaseapp.com',
 };
