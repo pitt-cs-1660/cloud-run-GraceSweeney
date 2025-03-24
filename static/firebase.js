@@ -130,6 +130,7 @@ async function vote(team) {
       if (response.ok) {
         console.log('Vote submitted successfully.');
         window.alert(`Vote submitted successfully.`);
+        window.location.reload();
       }
       
     } catch (err) {
